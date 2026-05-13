@@ -45,5 +45,5 @@ Este projeto faz parte dos meus estudos focados em **Engenharia de Dados**, onde
 **Curiosidade:** Este código foi escrito entre aulas e sessões de treino, movido a muito **Tereré com limão** 🧉🍋.
 
 ![UFMS](https://img.shields.io/badge/UFMS-CC-blue)
-![USP](https://img.shields.io/badge/EC--USP-São%20Carlos-orange)
-![Local](https://img.shields.io/badge/sLocal-Campo%20Grande--MS-green)
+![USP](https://img.shields.io/badge/USP-EC-orange)
+![Local](https://img.shields.io/badge/Local-Campo%20Grande--MS-green)
