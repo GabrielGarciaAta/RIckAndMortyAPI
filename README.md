@@ -38,7 +38,7 @@ O resultado final foi exportado para o formato **CSV**, gerando uma tabela pront
 
 ## 👨‍💻 Sobre o Autor
 
-Atualmente sou estudante de **Ciência da Computação na UFMS (Campo Grande)**, trazendo comigo a base técnica desenvolvida durante meu período na **USP São Carlos**. 
+Atualmente sou estudante de **Ciência da Computação na UFMS (Campo Grande)**, trazendo comigo a base técnica desenvolvida durante meu período de Engenharia de Computação na **USP São Carlos**. 
 
 Este projeto faz parte dos meus estudos focados em **Engenharia de Dados**, onde busco aplicar conceitos de computação em problemas reais de pipeline de dados.
 
