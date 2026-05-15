@@ -64,7 +64,8 @@ Em cenários reais de produção com volumes na escala de Terabytes, essa otimiz
 
 1. Clonar o repositório:
     ```cmd 
-    git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+    git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
     cd seu-repositorio
     ```
 2. Configurar o Ambiente Virtual 
