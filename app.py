@@ -15,3 +15,60 @@ status = st.sidebar.selectbox("Status de Vida:", ["Todos", "Alive", "Dead", "unk
 genero = st.sidebar.selectbox("Gênero:", ["Todos", "Male", "Female", "unknown", "Genderless"])
 
 busca_nome = st.text_input("Pesquisar por nome(ex: Rick, Morty, Summer):")
+
+# Lógica de consulta no SQL
+def carregar_dados():
+    # Acesso ao banco de dados
+    conn = sqlite3.connect('data/rick_and_morty.db')
+
+    # Query base 
+    query = "SELECT * FROM characters WHERE 1=1"
+
+    # Filtros dinâmicos
+    if busca_nome:
+        query += f" AND name LIKE '%{busca_nome}%'"
+    if status != "Todos":
+        query += f" AND status = '{status}'"
+    if genero != "Todos":
+        query += f" AND genero = '{genero}'"
+
+    df = pd.read_sql(query,conn)
+    conn.close()
+    return df
+
+df_filtrado = carregar_dados()
+
+st.write(f"Encontrados {len(df_filtrado)} personagens com os filtros aplicados:")
+
+# Exibição dos dados
+cols = st.columns(4) 
+
+for i, row in df_filtrado.iterrows():
+    with cols[i % 4]:
+        st.image(row['url_foto'], use_column_width=True)
+        st.subheader(row['nome'])
+        st.write(f"🧬 **Espécie:** {row['especie']}")
+        st.write(f"📍 **Origem:** {row['origem']}")
+        emoji = "🟢" if row['status'] == 'Alive' else "🔴" if row['status'] == 'Dead' else "⚪"
+        st.write(f"{emoji} **Status:** {row['status']}")
+        st.divider()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
