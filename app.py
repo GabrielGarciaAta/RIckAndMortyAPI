@@ -54,18 +54,20 @@ st.write(f"Encontrados {total_encontrados} personagens. Mostrando os primeiros{m
 df_exibicao = df_filtrado.head(limite_exibicao)
 
 # Exibição dos dados
-cols = st.columns(4) 
+for i in range(0, len(df_exibicao), 4):
+    bloco_personagens = df_exibicao.iloc[i:i+4]
+    cols = st.columns(4)
 
-for i, row in df_exibicao.reset_index(drop=True).iterrows():
-    with cols[i % 4]:
-        st.image(row['url_foto'], use_container_width=True)
-        st.subheader(row['nome'])
-        st.write(f"🧬 **Espécie:** {row['especie']}")
-        st.write(f"📍 **Origem:** {row['origem']}")
-        
-        emoji = "🟢" if row['status'] == 'Alive' else "🔴" if row['status'] == 'Dead' else "⚪"
-        st.write(f"{emoji} **Status:** {row['status']}")
-        st.divider()
+    for idx, (index, row) in enumerate(bloco_personagens.iterrows()):
+        with cols[idx]:
+            st.image(row['url_foto'], use_container_width=True)
+            st.subheader(row['nome'])
+            st.write(f"🧬 **Espécie:** {row['especie']}")
+            st.write(f"📍 **Origem:** {row['origem']}")
+
+            emoji = "🟢" if row['status'] == 'Alive' else "🔴" if row['status'] == 'Dead' else "⚪"
+            st.write(f"{emoji} **Status:** {row['status']}")
+    st.write("")
 
 
 
