@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
 import sqlite3
+import os 
 
 # Configuração do site 
-st.set_page_config(page_title="Rick And Morty Data Hub", layout="wide", pagee_icon="🧪")
+st.set_page_config(page_title="Rick And Morty Data Hub", layout="wide", page_icon="🧪")
 
 st.title("🧪 Rick And Morty - Explorer Interativo")
 st.markdown("Interface moderna alimentada por um pipeline de Engenharia de Dados e Banco SQL.")
@@ -18,8 +19,12 @@ busca_nome = st.text_input("Pesquisar por nome(ex: Rick, Morty, Summer):")
 
 # Lógica de consulta no SQL
 def carregar_dados():
+
+    caminho_atual = os.path.dirname(os.path.abspath(__file__))
+    caminho_banco = os.path.join(caminho_atual, 'data', 'rick_and_morty.db')
+
     # Acesso ao banco de dados
-    conn = sqlite3.connect('data/rick_and_morty.db')
+    conn = sqlite3.connect(caminho_banco)
 
     # Query base 
     query = "SELECT * FROM characters WHERE 1=1"
